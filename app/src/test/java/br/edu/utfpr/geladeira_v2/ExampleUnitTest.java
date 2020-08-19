@@ -1,4 +1,4 @@
-package br.com.avanutri_v7;
+package br.edu.utfpr.geladeira_v2;
 
 import org.junit.Test;
 

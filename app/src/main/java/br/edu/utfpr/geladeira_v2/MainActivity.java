@@ -1,7 +1,7 @@
-package br.com.avanutri_v7;
+package br.edu.utfpr.geladeira_v2;
 
 import androidx.appcompat.app.AppCompatActivity;
-import br.com.avanutri_v7.R;
+import br.edu.utfpr.geladeira_v2.R;
 
 import android.os.AsyncTask;
 import android.os.Bundle;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.avanutri_v7;
+package br.edu.utfpr.geladeira_v2;
 
 import android.net.Uri;
 
