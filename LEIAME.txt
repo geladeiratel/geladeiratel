@@ -1,4 +1,5 @@
-Copie as alteracoes para cah, para enviar para o Github
+Copie as alteracoes para a pasta geladeiratel clonada do GitHub,
+para enviar para o Github:
 
 https://github.com/geladeiratel/geladeiratel
 
