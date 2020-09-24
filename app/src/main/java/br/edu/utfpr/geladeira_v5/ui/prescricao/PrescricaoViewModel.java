@@ -1,16 +1,16 @@
-package br.edu.utfpr.geladeira_v4.ui.receitas;
+package br.edu.utfpr.geladeira_v5.ui.prescricao;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ReceitasViewModel extends ViewModel {
+public class PrescricaoViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ReceitasViewModel() {
+    public PrescricaoViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Receitas");
+        mText.setValue("Prescrição Dietética");
     }
 
     public LiveData<String> getText() {

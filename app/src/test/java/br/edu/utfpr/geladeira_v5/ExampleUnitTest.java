@@ -1,4 +1,4 @@
-package br.edu.utfpr.geladeira_v4;
+package br.edu.utfpr.geladeira_v5;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package br.edu.utfpr.geladeira_v4;
+package br.edu.utfpr.geladeira_v5;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,11 +8,11 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import br.edu.utfpr.geladeira_v4.ui.antropometricos.AntropometricoFragment;
-import br.edu.utfpr.geladeira_v4.ui.laudo.LaudoFragment;
-import br.edu.utfpr.geladeira_v4.ui.nutricional.NutricionalFragment;
-import br.edu.utfpr.geladeira_v4.ui.prescricao.PrescricaoFragment;
-import br.edu.utfpr.geladeira_v4.ui.receitas.ReceitasFragment;
+import br.edu.utfpr.geladeira_v5.ui.antropometricos.AntropometricoFragment;
+import br.edu.utfpr.geladeira_v5.ui.laudo.LaudoFragment;
+import br.edu.utfpr.geladeira_v5.ui.nutricional.NutricionalFragment;
+import br.edu.utfpr.geladeira_v5.ui.prescricao.PrescricaoFragment;
+import br.edu.utfpr.geladeira_v5.ui.receitas.ReceitasFragment;
 
 public class BotoesFragment extends Fragment {
 

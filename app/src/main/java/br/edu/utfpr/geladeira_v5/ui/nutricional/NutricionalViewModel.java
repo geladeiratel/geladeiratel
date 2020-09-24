@@ -1,4 +1,4 @@
-package br.edu.utfpr.geladeira_v4.ui.nutricional;
+package br.edu.utfpr.geladeira_v5.ui.nutricional;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/nav_antropometrico"
-        android:name="br.edu.utfpr.geladeira_v4.ui.antropometricos.AntropometricoFragment"
+        android:name="br.edu.utfpr.geladeira_v5.ui.antropometricos.AntropometricoFragment"
         android:label="@string/title_antropometrico"
         tools:layout="@layout/fragment_antropometrico" />
 
     <fragment
         android:id="@+id/nav_prescricao"
-        android:name="br.edu.utfpr.geladeira_v4.ui.prescricao.PrescricaoFragment"
+        android:name="br.edu.utfpr.geladeira_v5.ui.prescricao.PrescricaoFragment"
         android:label="@string/title_prescricao"
         tools:layout="@layout/fragment_prescricao" />
 
     <fragment
         android:id="@+id/nav_laudo"
-        android:name="br.edu.utfpr.geladeira_v4.ui.laudo.LaudoFragment"
+        android:name="br.edu.utfpr.geladeira_v5.ui.laudo.LaudoFragment"
         android:label="@string/title_laudo"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/nav_nutricional"
-        android:name="br.edu.utfpr.geladeira_v4.ui.nutricional.NutricionalFragment"
+        android:name="br.edu.utfpr.geladeira_v5.ui.nutricional.NutricionalFragment"
         android:label="@string/title_nutricional"
         tools:layout="@layout/activity_fullscreen" />
 
     <fragment
         android:id="@+id/nav_receitas"
-        android:name="br.edu.utfpr.geladeira_v4.ui.receitas.ReceitasFragment"
+        android:name="br.edu.utfpr.geladeira_v5.ui.receitas.ReceitasFragment"
         android:label="@string/title_receitas"
         tools:layout="@layout/fragment_receitas" />
 </navigation>

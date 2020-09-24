@@ -1,4 +1,4 @@
-package br.edu.utfpr.geladeira_v4;
+package br.edu.utfpr.geladeira_v5;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeGithubSearchQuery();
+                makeLoginQuery();
             }
         });
 
@@ -73,15 +79,20 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void makeGithubSearchQuery() {
+    private void makeLoginQuery() {
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-        URL githubSearchUrl = NetworkUtils.buildUrl(username, password);
+        URL loginSite = null;
+        if (username.isEmpty() || password.isEmpty())
+            Toast.makeText(getApplicationContext(), getString(R.string.login_failed), Toast.LENGTH_LONG).show();
+        else {
+            loginSite = NetworkUtils.buildUrl(username, password);
 
-        new GithubQueryTask().execute(githubSearchUrl);
+            new AppLogin().execute(loginSite);
+        }
     }
 
-    public class GithubQueryTask extends AsyncTask<URL, Void, String> {
+    public class AppLogin extends AsyncTask<URL, Void, String> {
 
         // COMPLETED (26) Override onPreExecute to set the loading indicator to visible
         @Override
@@ -93,29 +104,91 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(URL... params) {
             URL searchUrl = params[0];
-            String githubSearchResults = null;
+            String xmlFileResponse = null;
             try {
-                githubSearchResults = NetworkUtils.getResponseFromHttpUrl(searchUrl);
+                xmlFileResponse = NetworkUtils.getResponseFromHttpUrl(searchUrl);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return githubSearchResults;
+            return xmlFileResponse;
         }
 
         @Override
-        protected void onPostExecute(String githubSearchResults) {
+        protected void onPostExecute(String xmlFileResponse) {
             // COMPLETED (27) As soon as the loading is complete, hide the loading indicator
             mLoadingIndicator.setVisibility(View.INVISIBLE);
-            if (githubSearchResults != null && !githubSearchResults.equals("")) {
+            if (xmlFileResponse != null && !xmlFileResponse.equals("")) {
                 // COMPLETED (17) Call showJsonDataView if we have valid, non-null results
                 showJsonDataView();
-                mSearchResultsTextView.setText(githubSearchResults);
+                mSearchResultsTextView.setText(xmlFileResponse);
+
+                if (validateLogin(xmlFileResponse).equals("ALLOW"))
+                    abrirGeladeira();
+                else
+                    Toast.makeText(getApplicationContext(), getString(R.string.login_failed), Toast.LENGTH_LONG).show();
+
             } else {
                 // COMPLETED (16) Call showErrorMessage if the result is null in onPostExecute
                 showErrorMessage();
             }
         }
     }
+
+    private String validateLogin(String xmlFileResponse) {
+
+        String permission = new String("DENY");
+
+        //Convert xmlFileResponse to InputStream
+        InputStream inputStream = getInputStream(xmlFileResponse,"UTF-8");
+
+        try {
+            //Prepara as classes leitoras
+            XmlPullParserFactory xmlFactoryObject = XmlPullParserFactory.newInstance();
+            XmlPullParser myparser = xmlFactoryObject.newPullParser();
+
+            //Define o parser do stream
+            myparser.setInput(inputStream, null);
+
+            //Faz o parser do XML
+            int event = myparser.getEventType();
+            while (event != XmlPullParser.END_DOCUMENT)  {
+                //Retorna o nome da tag
+                String name=myparser.getName();
+                switch (event){
+                    case XmlPullParser.START_TAG:
+                        break;
+
+                    case XmlPullParser.END_TAG:
+                        if(name.equals("permission")){
+                            //Toast.makeText(getApplicationContext(), myparser.getAttributeValue(null,"value"), Toast.LENGTH_LONG).show();
+                            permission = myparser.getAttributeValue(null,"value");
+                        }
+                        break;
+                }
+                event = myparser.next();
+            }
+
+
+        } catch(Exception e){
+            Toast.makeText(getApplicationContext(), getString(R.string.login_failed), Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "Passei por aqui", Toast.LENGTH_LONG).show();
+        }
+
+        return permission;
+    }
+
+    //Transforma a string do XML recebida do site em InputStream
+    private InputStream getInputStream(String str, String encoding) {
+
+        InputStream inputStream = null;
+        try {
+            inputStream = new ByteArrayInputStream(str.getBytes(encoding));
+        } catch (UnsupportedEncodingException e){
+            Toast.makeText(getApplicationContext(), getString(R.string.error_coding), Toast.LENGTH_LONG).show();
+        }
+        return inputStream;
+    }
+
 
     // COMPLETED (14) Create a method called showJsonDataView to show the data and hide the error
     /**

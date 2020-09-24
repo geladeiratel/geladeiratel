@@ -1,4 +1,4 @@
-package br.edu.utfpr.geladeira_v4.ui.laudo;
+package br.edu.utfpr.geladeira_v5.ui.laudo;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import br.edu.utfpr.geladeira_v4.R;
+import br.edu.utfpr.geladeira_v5.R;
 
 public class LaudoFragment extends Fragment {
 
