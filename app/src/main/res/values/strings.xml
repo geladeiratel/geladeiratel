@@ -1,24 +1,42 @@
-<!--
-  Copyright (C) 2016 The Android Open Source Project
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  -->
 <resources>
-    <string name="app_name">Geladeira_v2</string>
-    <!--COMPLETED (1) Add a string resource called search with the title "Search"-->
-    <string name="search">Buscar</string>
-    <!--COMPLETED (1) Add a string stating that an error has occurred-->
-    <string name="error_message">
-        Failed to get results. Please try again.
-    </string>
+    <string name="app_name">geladeira_v4</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Usuário</string>
+    <string name="prompt_password">Senha</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="welcome">Bem-vindo!</string>
+    <string name="invalid_username">Nome de usuário inválido</string>
+    <string name="invalid_password">Nome de usuário e/ou senha inválido(s)</string>
+    <string name="login_failed">"Login falhou"</string>
+    <string name="esqueci">Esqueceu sua senha?</string>
+
+    <string name="title_activity_fullscreen">@string/app_name</string>
+    <string name="dummy_content">GeladeiraTel</string>
+
+    <string name="todo">Ainda não implementado</string>
+    <string name="title_activity_main">@string/app_name</string>
+    <string name="title_antropometrico">Dados Biométricos</string>
+    <string name="title_prescricao">Prescrição Dietética</string>
+    <string name="title_laudo">Laudo Biométrico</string>
+    <string name="title_nutricional">Orientação Nutricional</string>
+    <string name="title_receitas">Receitas</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="fragment_botao1">@string/title_antropometrico</string>
+    <string name="fragment_botao2">@string/title_prescricao</string>
+    <string name="fragment_botao3">@string/title_laudo</string>
+    <string name="fragment_botao4">@string/title_nutricional</string>
+    <string name="fragment_botao5">@string/title_receitas</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_barra_menu">BarraMenu</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="error_message">Falhou. Tente novamente.</string>
+    <string name="semsenha">Login sem senha</string>
+
 </resources>

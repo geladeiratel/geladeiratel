@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.edu.utfpr.geladeira_v2;
+package br.edu.utfpr.geladeira_v4;
 
 import android.net.Uri;
 
@@ -29,10 +29,10 @@ import java.util.Scanner;
  */
 public class NetworkUtils {
 
-    final static String GITHUB_BASE_URL =
-            "https://www.google.com";
+    final static String GITHUB_BASE_URL = "https://webgelateljava.herokuapp.com/applogin";
 
-    final static String PARAM_QUERY = "q";
+    final static String PARAM_USERNAME = "username";
+    final static String PARAM_PASSWORD = "password";
 
     /*
      * The sort field. One of stars, forks, or updated.
@@ -44,14 +44,14 @@ public class NetworkUtils {
     /**
      * Builds the URL used to query GitHub.
      *
-     * @param githubSearchQuery The keyword that will be queried for.
+     * @param username and password.
      * @return The URL to use to query the GitHub server.
      */
-    public static URL buildUrl(String githubSearchQuery) {
+    public static URL buildUrl(String username, String password) {
         // COMPLETED (1) Fill in this method to build the proper GitHub query URL
         Uri builtUri = Uri.parse(GITHUB_BASE_URL).buildUpon()
-                .appendQueryParameter(PARAM_QUERY, githubSearchQuery)
-                .appendQueryParameter(PARAM_SORT, sortBy)
+                .appendQueryParameter(PARAM_USERNAME, username)
+                .appendQueryParameter(PARAM_PASSWORD, password)
                 .build();
 
         URL url = null;
